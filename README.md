@@ -15,7 +15,7 @@ The motivation behind this algorithm is the idea that it's easier to remember th
 
 ## Algorithm, Mark I ##
 
-An alphabet of `{a-z} U {0-9 \ 1} U {-, &, _, .< *, #, '}` is used to create the password. The number `1` is eliminated for the sake of readability ('1' and 'l' can look very similar). The alphabet therefore has a length of 41.
+An alphabet of `{a-z} U {0-9 \ 1} U {-, &, _, ., <, *, #, '}` is used to create the password. The number `1` is eliminated for the sake of readability ('1' and 'l' can look very similar). The alphabet therefore has a length of 41.
 
 - The user inputs a length `n` they want their password to be and (optionally) how many words they want their password to be based on `l` (default is 3).
 - The algorithm chooses `l` random words (shares) from the dictionary, ensuring that at least one of them is of length `n`.
