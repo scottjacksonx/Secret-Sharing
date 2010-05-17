@@ -15,17 +15,17 @@ The motivation behind this algorithm is the idea that it's easier to remember th
 
 ## Algorithm, Mark I ##
 
-An alphabet of `{a-z} U {0-9 \ 1} U {-, &, _, ., <, *, #, '}` is used to create the password. The number `1` is eliminated for the sake of readability ('1' and 'l' can look very similar). The alphabet therefore has a length of 43.
+An alphabet of `{a-z} U {0-9 \ 1} U {-, &, _, ., *, #, '}` is used to create the password. The number `1` is eliminated for the sake of readability ('1' and 'l' can look very similar). The alphabet therefore has a length of 42.
 
 - The user inputs a length `n` they want their password to be and (optionally) how many words they want their password to be based on `l` (default is 3).
 - The algorithm chooses `l` random words (shares) from the dictionary, ensuring that at least one of them is of length `n`.
-- The algorithm "adds" the words together (letterwise mod 43). This gives us a secure password and the `l` words that generate it. If an attacker has < `l` words, he knows as much about the password as if he had 0 words.
+- The algorithm "adds" the words together (letterwise mod 42). This gives us a secure password and the `l` words that generate it. If an attacker has < `l` words, he knows as much about the password as if he had 0 words.
 
 ## Brute-Force Attack #
 
 Assumptions for a Brute-Force Attack: The attacker knows the length of the password you're generating. He knows `l-1` of the shares.
 
-- **Brute-Force Attack**: Assuming the attacker knows `l-1` shares, he knows there is one share he doesn't have and that that share is of length at most `n`. Therefore, he has to test 43^n combinations (the same amount as if he knew 0 shares). For a password of length 10, this is 2.161148231 x 10^16 combinations.
+- **Brute-Force Attack**: Assuming the attacker knows `l-1` shares, he knows there is one share he doesn't have and that that share is of length at most `n`. Therefore, he has to test 42^n combinations (the same amount as if he knew 0 shares). For a password of length 10, this is 1.708019812 x 10^16 combinations.
 - **Super Brute-Force Attack Turbo**: Assuming the attacker knows `l-1` shares *and he knows the exact dictionary you're using*, he only has to test each word in the dictionary to crack the password (41238 combinations in the implementation provided here). However, if the attacker has access to the dictionary you're using, he obviously already has access to something of yours that's password-protected (assuming you kept the dictionary somewhere password-protected), and thus probably doesn't need to figure out your password.
 
 
