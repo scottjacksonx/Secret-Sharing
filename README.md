@@ -25,7 +25,7 @@ An alphabet of `{a-z} U {0-9 \ 1} U {-, &, _, ., <, *, #, '}` is used to create 
 
 Assumptions for a Brute-Force Attack: The attacker knows the length of the password you're generating. He knows `l-1` of the shares.
 
-- **Brute-Force Attack**: Assuming the attacker knows `l-1` shares, he knows there is one share he doesn't have and that that share is of length at most `n`. Therefore, he has to test 41^n combinations (the same amount as if he knew 0 words). For a password of length 10, this is 1.342265931 x 10^16 combinations.
+- **Brute-Force Attack**: Assuming the attacker knows `l-1` shares, he knows there is one share he doesn't have and that that share is of length at most `n`. Therefore, he has to test 41^n combinations (the same amount as if he knew 0 shares). For a password of length 10, this is 1.342265931 x 10^16 combinations.
 - **Super Brute-Force Attack Turbo**: Assuming the attacker knows `l-1` shares *and he knows the exact dictionary you're using*, he only has to test each word in the dictionary to crack the password (41238 combinations in the implementation provided here). However, if the attacker has access to the dictionary you're using, he obviously already has access to something of yours that's password-protected (assuming you kept the dictionary somewhere password-protected), and thus probably doesn't need to figure out your password.
 
 
