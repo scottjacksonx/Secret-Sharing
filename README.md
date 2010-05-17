@@ -11,7 +11,7 @@ This is an implementation of an algorithm I'm writing as part of my cryptography
 
 ## Notes #
 
-- Brute-Force Attack: Assuming the attacker knows `l - 1` words, they only have to test each word in the dictionary to crack the password (41238).
+- Brute-Force Attack: Assuming the attacker knows `l - 1` words, they only have to test each word in the dictionary to crack the password (41238 combinations).
 
 ## Things to consider at each phase #
 
