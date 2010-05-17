@@ -1,15 +1,3 @@
-"""
-# Algorithm, Mark I #
-
-- User inputs a length `n` they want their password to be and (optionally) how many words they want their password to be based on `l` (default is 3).
-- Program chooses `l` random words from the dictionary, ensuring that at least one of them is of length `n`.
-- Program "adds" the words together (mod 40). This gives us a secure password and the `l` words that generate it.
-
-# Notes #
-
-- Brute-Force Attack: Assuming the attacker knows `l - 1` words, they only have to test each word in the dictionary to crack the password (41238).
-"""
-
 import random
 
 
