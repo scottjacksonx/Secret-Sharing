@@ -17342,7 +17342,6 @@ hysteric
 hysterical
 hysterically
 hysterics
-I
 i
 iamb
 iambic
@@ -17378,7 +17377,6 @@ iconography
 ictus
 icy
 id
-I'd
 idea
 ideal
 idealism
@@ -17455,7 +17453,6 @@ ileum
 ilium
 ilk
 ill
-I'll
 ill-advised
 ill-advisedly
 ill-bred
@@ -17518,7 +17515,6 @@ illustrator
 illustrious
 illustriously
 illustriousness
-I'm
 image
 imagery
 imaginable
@@ -19308,7 +19304,6 @@ it's
 itself
 itsy-bitsy
 itty-bitty
-I've
 ivied
 ivories
 ivory
@@ -24384,7 +24379,6 @@ nymph
 nymphet
 nymphomania
 nymphomaniac
-O
 o
 o'
 oaf

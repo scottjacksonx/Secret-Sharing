@@ -1,4 +1,8 @@
+# Usage:
+# crypto.py [-l length] [-n numWords] [-w baseWord]
+
 import random
+import sys
 
 # Dictionary file from http://wordlist.sourceforge.net/
 
@@ -32,7 +36,7 @@ def addWords(words):
 	return sumWord
 	
 	
-def chooseWords(dictionaryFilename, length, numWords=3):
+def chooseWords(dictionaryFilename, length, numWords=3, baseWord=""):
 	"""
 	Looks in a dictionary (text file) and chooses `numWords` random words, at least two of which are length `length` and the rest of length <= `length`.
 	"""
@@ -45,24 +49,32 @@ def chooseWords(dictionaryFilename, length, numWords=3):
 	
 	randomWords = []
 	random.seed()
+	alreadyAdded = 2
+	
+	if baseWord is not "":
+		randomWords.append(baseWord)
+		alreadyAdded = 3
+		
 	
 	# Get two random words of length `length`.
 	for i in range(0,2):
 		foundBigWord = False
 		bigRandomWord = ""
 		while not foundBigWord:
-			bigRandomWord = allWords[random.randint(0, len(allWords))]
+			bigRandomWord = allWords[random.randint(0, len(allWords)-1)]
 			if len(bigRandomWord) == length:
 				foundBigWord = True
 		randomWords.append(bigRandomWord)
 	
-	# Get 
-	for i in range(0, numWords - 2):
+	
+	
+	
+	for i in range(0, numWords - alreadyAdded):
 		random.seed()
 		appropriatelySizedWordFound = False
 		randomWord = ""
 		while not appropriatelySizedWordFound:
-			randomWord = allWords[random.randint(0,len(allWords))]
+			randomWord = allWords[random.randint(0,len(allWords)-1)]
 			if len(randomWord) <= length:
 					appropriatelySizedWordFound = True
 		randomWords.append(randomWord)
@@ -73,11 +85,50 @@ def chooseWords(dictionaryFilename, length, numWords=3):
 		
 	return randomWords
 
-randomWords = chooseWords("dictionary.txt", 10)
+numWords = 3
+length = 10
+baseWord = ""
+
+
+if len(sys.argv) > 2:
+	if len(sys.argv) == 3:
+		if sys.argv[1] == "-l":
+			length = int(sys.argv[2])
+		elif sys.argv[1] == "-n":
+			numWords = int(sys.argv[2])
+		elif sys.argv[1] == "-w":
+			baseWord = str(sys.argv[2])
+	elif len(sys.argv) == 5:
+		# first arg
+		if sys.argv[1] == "-l":
+			length = int(sys.argv[2])
+		elif sys.argv[1] == "-n":
+			numWords = int(sys.argv[2])
+			
+		# second arg
+		if sys.argv[3] == "-n":
+			numWords = int(sys.argv[4])
+		elif sys.argv[3] == "-w":
+			baseWord = str(sys.argv[4])
+	elif len(sys.argv) == 7:
+		length = int(sys.argv[2])
+		numWords = int(sys.argv[4])
+		baseWord = str(sys.argv[6])
+
+randomWords = chooseWords("dictionary.txt", length, numWords, baseWord)
 print randomWords,
 password = addWords(randomWords)
-
 print "= " + password
+
+
+
+
+
+
+
+
+
+
 	
 	
 
