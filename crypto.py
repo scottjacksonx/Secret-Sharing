@@ -4,7 +4,8 @@
 import random
 import sys
 
-# Dictionary file from http://wordlist.sourceforge.net/
+# Original dictionary file from http://wordlist.sourceforge.net/
+# Dictionary file has been modified slightly (words containing "I" and "O" have been removed, and newline characters have been changed from DOS-style to Unix-style.
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '2', '3', '4', '5', '6', '7', '8', '9', '-', '&', '_', '.', '*', '#', '\'']	# '1' is left out for readability's sake ('l' and '1' can look very similar.)
 
@@ -38,7 +39,7 @@ def addWords(words):
 	
 def chooseWords(dictionaryFilename, length, numWords=3, baseWord=""):
 	"""
-	Looks in a dictionary (text file) and chooses `numWords` random words, at least two of which are length `length` and the rest of length <= `length`.
+	Looks in a dictionary (text file) and chooses `numWords` random words, two of which are length `length` and the rest of length <= `length`.
 	"""
 	dictionary = open(dictionaryFilename, "r")
 	
